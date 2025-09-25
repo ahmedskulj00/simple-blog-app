@@ -3,7 +3,7 @@ import InputField from "./InputField";
 import TextArea from "./TextArea";
 import Button from "./Button";
 import { BLOG_FORM_FIELDS } from "@/constants/constants";
-import { FormFields } from "@/types/types";
+import { Component, FormFields } from "@/types/types";
 
 interface BlogFormProps {
   onSubmit: (blog: FormFields) => void;
@@ -38,7 +38,7 @@ const BlogForm = ({ onSubmit, initial }: BlogFormProps) => {
       onSubmit={handleSubmit}
     >
       {BLOG_FORM_FIELDS.map((field) =>
-        field.component === "input" ? (
+        field.component === Component.Input ? (
           <InputField
             key={field.name}
             name={field.name}
@@ -63,7 +63,7 @@ const BlogForm = ({ onSubmit, initial }: BlogFormProps) => {
           />
         )
       )}
-      <Button type="submit">Submit</Button>
+      <Button>Submit</Button>
     </form>
   );
 };
