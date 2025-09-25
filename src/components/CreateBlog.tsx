@@ -1,12 +1,23 @@
 "use client";
 
+import { useBlogs } from "@/hooks/useBlogs";
 import BlogForm from "./shared/BlogForm";
+import { useRouter } from "next/navigation";
+import { Blog } from "@/types/types";
 
 const CreateBlog = () => {
+  const { addBlog } = useBlogs();
+  const router = useRouter();
+
+  const handleSubmit = (form: Omit<Blog, "id">) => {
+    addBlog({ id: crypto.randomUUID(), ...form });
+    router.push("/");
+  };
+
   return (
     <div className="flex w-full flex-col items-center min-h-[calc(100vh-44px)]">
       <h1 className="text-3xl mt-10 mb-10">Create a new blog</h1>
-      <BlogForm />
+      <BlogForm onSubmit={handleSubmit} />
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { Component, FieldConfig } from "@/types/types";
+
 export const HEADER_NAV_LINKS = [
   {
     id: crypto.randomUUID(),
@@ -11,40 +13,40 @@ export const HEADER_NAV_LINKS = [
   },
 ];
 
-export const BLOG_FORM_FIELDS = [
+export const BLOG_FORM_FIELDS: FieldConfig[] = [
   {
-    component: "input",
+    component: Component.Input,
     name: "title",
     placeholder: "Title",
     maxLength: 50,
   },
   {
-    component: "input",
+    component: Component.Input,
     name: "authorName",
     placeholder: "Author",
     maxLength: 50,
   },
   {
-    component: "input",
+    component: Component.Input,
     name: "authorEmail",
     placeholder: "Author Email",
     type: "email",
   },
   {
-    component: "input",
+    component: Component.Input,
     name: "date",
     placeholder: "Date",
     type: "date",
     className: "border p-2 rounded-lg bg-white text-black",
   },
   {
-    component: "textarea",
+    component: Component.TextArea,
     name: "summary",
     placeholder: "Summary",
     maxLength: 250,
   },
   {
-    component: "textarea",
+    component: Component.TextArea,
     name: "content",
     placeholder: "Content",
   },
