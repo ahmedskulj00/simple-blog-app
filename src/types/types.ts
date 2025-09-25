@@ -1,9 +1,3 @@
-export enum ButtonType {
-  Submit = "submit",
-  Reset = "reset",
-  Button = "button",
-}
-
 export interface Blog {
   id: string;
   title: string;
