@@ -4,14 +4,16 @@ import { useBlogs } from "@/hooks/useBlogs";
 import BlogCard from "./BlogCard";
 
 const BlogList = () => {
-  const { blogs } = useBlogs();
+  const { blogs, loaded } = useBlogs();
+  const commonClasses =
+    "text-center text-lg font-semibold min-h-[calc(100vh-44px)] flex items-center justify-center";
+
+  if (!loaded) {
+    return <p className={commonClasses}>Loading blogs...</p>;
+  }
 
   if (blogs.length === 0) {
-    return (
-      <p className="text-center text-lg font-semibold min-h-[calc(100vh-44px)] flex items-center justify-center">
-        No blogs available yet.
-      </p>
-    );
+    return <p className={commonClasses}>No blogs available yet.</p>;
   }
 
   return (
