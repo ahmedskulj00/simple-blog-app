@@ -10,11 +10,9 @@ const Header = () => {
         <Link href="/" className="hover:underline font-bold">
           <h1>Simple Blog App</h1>
         </Link>
-        <div className="flex gap-6">
-          <Link href={"/blog/create"}>
-            <Button>Create</Button>
-          </Link>
-        </div>
+        <Link href={"/blog/create"}>
+          <Button>Create</Button>
+        </Link>
       </nav>
     </header>
   );
