@@ -8,7 +8,7 @@ const Header = () => {
   const pathname = usePathname();
   return (
     <header className="h-11">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center h-full text-xl">
+      <nav className="flex justify-between items-center h-full text-xl">
         <h1>Simple Blog App</h1>
         <div className="flex gap-6">
           {HEADER_NAV_LINKS.map((link) => {

@@ -18,8 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <Header />
-        {children}
+        <div className="max-w-7xl mx-auto px-4 sm:px-0">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );
