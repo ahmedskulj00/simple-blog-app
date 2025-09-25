@@ -1,4 +1,4 @@
-import BlogDetailsWrapper from "@/components/BlogDetailsWrapper";
+import BlogDetails from "@/components/blog/BlogDetails";
 
 interface BlogDetailsPageProps {
   params: Promise<{
@@ -8,7 +8,7 @@ interface BlogDetailsPageProps {
 
 const BlogDetailsPage = async ({ params }: BlogDetailsPageProps) => {
   const awaitedParams = await params;
-  return <BlogDetailsWrapper id={awaitedParams.id} />;
+  return <BlogDetails id={awaitedParams.id} />;
 };
 
 export default BlogDetailsPage;

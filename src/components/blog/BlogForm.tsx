@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import InputField from "./InputField";
-import TextArea from "./TextArea";
-import Button from "./Button";
+import InputField from "../shared/InputField";
+import TextArea from "../shared/TextArea";
+import Button from "../shared/Button";
 import { BLOG_FORM_FIELDS } from "@/constants/constants";
 import { Component, FormFields } from "@/types/types";
 
@@ -42,7 +42,7 @@ const BlogForm = ({ onSubmit, initial }: BlogFormProps) => {
 
   return (
     <form
-      className="flex justify-center items-center flex-col gap-5"
+      className="flex justify-center items-center flex-col gap-5 mb-10"
       onSubmit={handleSubmit}
     >
       {BLOG_FORM_FIELDS.map((field) => {
@@ -56,7 +56,7 @@ const BlogForm = ({ onSubmit, initial }: BlogFormProps) => {
             onChange={handleChange}
             placeholder={field.placeholder}
             labelName={field.label}
-            className={`border p-2 rounded-lg sm:w-[480px] w-full ${field.className}`}
+            className={`sm:w-[480px] w-full ${field.className}`}
             required
             type={field.type || "text"}
             maxLength={field.maxLength}
@@ -70,7 +70,7 @@ const BlogForm = ({ onSubmit, initial }: BlogFormProps) => {
             onChange={handleChange}
             placeholder={field.placeholder}
             labelName={field.label}
-            className={`border p-2 rounded-lg sm:w-[480px] w-full h-32 ${field.className}`}
+            className={`sm:w-[480px] w-full h-32 ${field.className}`}
             required
             maxLength={field.maxLength}
           />

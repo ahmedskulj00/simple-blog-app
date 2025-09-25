@@ -1,7 +1,7 @@
 "use client";
 
 import { useBlogs } from "@/hooks/useBlogs";
-import BlogForm from "./shared/BlogForm";
+import BlogForm from "./BlogForm";
 import { useRouter } from "next/navigation";
 import { Blog } from "@/types/types";
 

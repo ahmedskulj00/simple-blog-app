@@ -1,20 +1,24 @@
 "use client";
 
 import { useBlogs } from "@/hooks/useBlogs";
-import BlogForm from "./shared/BlogForm";
+import BlogForm from "./BlogForm";
 import { useRouter } from "next/navigation";
 import { Blog } from "@/types/types";
 import Link from "next/link";
-import Button from "./shared/Button";
+import Button from "../shared/Button";
 
-interface EditBlogWrapperProps {
+interface EditBlogProps {
   id: string;
 }
 
-const EditBlogWrapper = ({ id }: EditBlogWrapperProps) => {
-  const { editBlog, getBlog } = useBlogs();
+const EditBlog = ({ id }: EditBlogProps) => {
+  const { editBlog, getBlog, loaded } = useBlogs();
   const blog = getBlog(id);
   const router = useRouter();
+
+  if (!loaded) {
+    return <div>Loading...</div>;
+  }
 
   if (!blog) {
     return <div>Blog not found</div>;
@@ -27,8 +31,8 @@ const EditBlogWrapper = ({ id }: EditBlogWrapperProps) => {
 
   return (
     <div className="flex w-full flex-col items-center min-h-[calc(100vh-44px)]">
-      <Link href={`/blog/${id}`} className="self-start mt-2">
-        <Button>Back</Button>
+      <Link href={`/blog/${id}`} className="self-start mt-10">
+        <Button>&larr; Back</Button>
       </Link>
       <h1 className="text-3xl mb-5">Edit Blog</h1>
       <BlogForm onSubmit={handleSubmit} initial={blog} />
@@ -36,4 +40,4 @@ const EditBlogWrapper = ({ id }: EditBlogWrapperProps) => {
   );
 };
 
-export default EditBlogWrapper;
+export default EditBlog;

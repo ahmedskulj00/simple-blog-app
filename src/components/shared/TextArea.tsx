@@ -32,7 +32,7 @@ const TextArea = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={className}
+        className={`${className} outline-none p-2 border border-gray-50/20`}
         required={required}
         maxLength={maxLength}
       />

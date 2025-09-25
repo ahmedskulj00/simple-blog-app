@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import { Inter } from "next/font/google";
-import Header from "@/components/Header";
+import { Geist_Mono } from "next/font/google";
+import Header from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   title: "Simple Blog App",
   description: "Simple Blog App created with Next.js",
 };
 
-const inter = Inter({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${geistMono.className} antialiased`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-0">
           <Header />
           {children}

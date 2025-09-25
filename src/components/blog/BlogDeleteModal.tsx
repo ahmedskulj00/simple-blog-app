@@ -1,12 +1,16 @@
-import Button from "./shared/Button";
+import Button from "../shared/Button";
 
-interface DeleteModalProps {
+interface BlogDeleteModalProps {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
 }
 
-const DeleteModal = ({ isOpen, onClose, onConfirm }: DeleteModalProps) => {
+const BlogDeleteModal = ({
+  isOpen,
+  onClose,
+  onConfirm,
+}: BlogDeleteModalProps) => {
   if (!isOpen) return null;
 
   const handleConfirm = () => {
@@ -41,4 +45,4 @@ const DeleteModal = ({ isOpen, onClose, onConfirm }: DeleteModalProps) => {
   );
 };
 
-export default DeleteModal;
+export default BlogDeleteModal;

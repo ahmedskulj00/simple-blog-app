@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 
 export const useBlogs = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (stored) {
       setBlogs(JSON.parse(stored));
     }
+    setLoaded(true);
   }, []);
 
   const syncBlogs = (blogs: Blog[]) => {
@@ -43,5 +45,6 @@ export const useBlogs = () => {
     getBlog,
     editBlog,
     deleteBlog,
+    loaded,
   };
 };

@@ -1,4 +1,4 @@
-import EditBlogWrapper from "@/components/EditBlogWrapper";
+import EditBlog from "@/components/blog/EditBlog";
 
 interface EditPageProps {
   params: Promise<{
@@ -7,7 +7,7 @@ interface EditPageProps {
 }
 const EditBlogPage = async ({ params }: EditPageProps) => {
   const awaitedParams = await params;
-  return <EditBlogWrapper id={awaitedParams.id} />;
+  return <EditBlog id={awaitedParams.id} />;
 };
 
 export default EditBlogPage;

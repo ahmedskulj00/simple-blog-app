@@ -1,5 +1,5 @@
-import HomeWrapper from "@/components/HomeWrapper";
+import BlogList from "@/components/blog/BlogList";
 
-export default function Home() {
-  return <HomeWrapper />;
+export default function HomePage() {
+  return <BlogList />;
 }
