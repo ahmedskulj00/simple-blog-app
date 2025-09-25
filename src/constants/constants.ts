@@ -25,7 +25,7 @@ export const BLOG_FORM_FIELDS: FieldConfig[] = [
     component: Component.Input,
     name: "authorName",
     placeholder: "Enter author name",
-    maxLength: 50,
+    maxLength: 40,
     label: "Author Name",
   },
   {
