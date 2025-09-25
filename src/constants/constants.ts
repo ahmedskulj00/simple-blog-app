@@ -49,3 +49,5 @@ export const BLOG_FORM_FIELDS = [
     placeholder: "Content",
   },
 ];
+
+export const LOCAL_STORAGE_KEY = "BLOGS";
