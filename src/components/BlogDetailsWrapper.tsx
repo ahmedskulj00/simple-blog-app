@@ -4,19 +4,35 @@ import { useBlogs } from "@/hooks/useBlogs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "./shared/Button";
+import DeleteModal from "./DeleteModal";
+import { useState } from "react";
 
 interface BlogDetailsWrapperProps {
   id: string;
 }
 
 const BlogDetailsWrapper = ({ id }: BlogDetailsWrapperProps) => {
-  const { getBlog } = useBlogs();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { getBlog, deleteBlog } = useBlogs();
   const blog = getBlog(id);
   const router = useRouter();
 
   if (!blog) {
     return <div>Blog not found</div>;
   }
+
+  const handleDeleteClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    deleteBlog(id);
+    router.push("/");
+  };
 
   return (
     <div className="my-10">
@@ -29,10 +45,16 @@ const BlogDetailsWrapper = ({ id }: BlogDetailsWrapperProps) => {
         <Link href={`/blog/${id}/edit`}>
           <Button>Edit</Button>
         </Link>
-        <Button onClick={() => router.push("/")}>Delete</Button>
+        <Button onClick={handleDeleteClick}>Delete</Button>
       </div>
       <p className="my-4 text-lg text-justify">{blog.summary}</p>
       <p className="text-2xl text-justify">{blog.content}</p>
+
+      <DeleteModal
+        isOpen={isModalOpen}
+        onClose={handleClose}
+        onConfirm={handleDelete}
+      />
     </div>
   );
 };
