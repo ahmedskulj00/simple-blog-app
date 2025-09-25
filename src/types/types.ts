@@ -30,4 +30,5 @@ export interface FieldConfig {
   className?: string;
   type?: string;
   maxLength?: number;
+  label: string;
 }
